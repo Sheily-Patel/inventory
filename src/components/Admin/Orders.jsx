@@ -5,6 +5,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Header from "../Header/Header";
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -54,7 +55,8 @@ function preventDefault(event) {
 export default function Orders() {
   return (
     <React.Fragment>
-     <h2>Recent Orders</h2>
+      <Header/>
+     <h3>Recent Orders</h3>
       <Table size="small">
         <TableHead>
           <TableRow>

@@ -16,20 +16,19 @@ import { useNavigate } from 'react-router-dom';
 
 const useStyle = makeStyles({
   container: {
-    marginTop: "2%",
+    marginTop: "1%",
     marginBottom: "1%",
-    position: "absolute",
-    marginRight: "28%"
+    position: "relative",
+    marginRight: "8%",
   },
   button: {
-    position: "absolute",
-    marginTop: "2%",
-    marginBottom: "1%",
-    marginLeft: "77%"
+    marginTop: "1%",
+    position: "relative",
+    display: "flex"
   },
   section: {
     marginTop: " 28% 28% 1% 1%",
-    padding: "2%",
+    padding: "8%",
     display: "flex"
   }
 })
@@ -96,7 +95,9 @@ const Dashboard = () => {
               </Grid>
               <section className={classes.section}>
                 <Button variant="contained" className={classes.container} onClick={() => navigate("/addcategory")}>Add Category</Button>
-                <Button variant="contained" className={classes.button} onClick={() => navigate("/inventory")}>Add Inventory</Button>
+                </section>
+                <section className={classes.section}>
+                <Button variant="contained" className={classes.button} onClick={() => navigate("/addinventory")}>Add Inventory</Button>
               </section>
               <Grid item xs={12}>
               </Grid>

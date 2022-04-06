@@ -36,6 +36,24 @@ export const mob = [
     price: 32000,
     image: "https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-9-pro-1.jpg"
   },
+  // {
+  //   id:6,
+  //   name: "Samsung Galaxy S22",
+  //   price: 72000,
+  //   image: "https://i.gadgets360cdn.com/products/large/Galaxy-S22-659x800-1644417585.jpg"
+  // },
+  // {
+  //   id:7,
+  //   name: "Google Pixel 6 Pro",
+  //   price: 68000,
+  //   image: "https://cdn.vox-cdn.com/thumbor/5WGYJNd55gkxlfjVHVLk_ayxvpI=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/70538044/bfarsace_211014_4802_0002.0.jpg"
+  // },
+  // {
+  //   id:8,
+  //   name: "Vivo X60 Pro+",
+  //   price: 69990,
+  //   image: "https://www.gizmochina.com/wp-content/uploads/2021/01/vvx60plus.jpg"
+  // },
 ];
 
 export const fashion = [
@@ -69,6 +87,30 @@ export const fashion = [
     price: 3500,
     image: "https://assets.ajio.com/medias/sys_master/root/20210420/GnFa/607ecd0df997dd7b64b80350/-473Wx593H-462323964-white-MODEL.jpg"
   },
+  // {
+  //   id: 6,
+  //   name: "Women Suit",
+  //   price: 8500,
+  //   image: "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/17048614/2022/2/4/b0eb9426-adf2-4802-a6b3-5dbacbc5f2511643971561167KhushalKWomenBlackEthnicMotifsAngrakhaBeadsandStonesKurtawit7.jpg"
+  // },
+  // {
+  //   id: 7,
+  //   name: "White Shirt",
+  //   price: 2500,
+  //   image: "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/10673544/2019/9/24/6b9c7688-7ca2-4d11-9e5b-a3745ecd8f761569310358973-The-Indian-Garage-Co-Men-Shirts-8481569310357131-1.jpg"
+  // },
+  // {
+  //   id: 8,
+  //   name: "Yellow frock",
+  //   price: 1000,
+  //   image: "https://www.babycouture.in/blog/wp-content/uploads/2016/04/elegant-summers-yellow-blue-kids-dress.jpg"
+  // },
+  // {
+  //   id: 9,
+  //   name: "Long Top",
+  //   price: 850,
+  //   image: "https://n3.sdlcdn.com/imgs/j/s/f/230X258_sharpened/IRIDAA-JAIPUR-Cotton-Tunics-Brown-SDL556172091-1-fbada.jpg"
+  // },
 ];
 
 export const electronics = [
