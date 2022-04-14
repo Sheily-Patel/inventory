@@ -20,9 +20,7 @@ function Cart() {
     <div>
       <Header/>
       <h2 className={classes.head}>My Cart</h2>
-      
       <Divider/>
-      
     </div>
   )
 }
