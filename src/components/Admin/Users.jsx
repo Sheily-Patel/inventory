@@ -34,7 +34,7 @@ export default function Users() {
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     console.log({
-      firstName: data.get('firstName'),
+      username: data.get('username'),
       lastName: data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),

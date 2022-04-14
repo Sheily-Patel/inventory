@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './CheckoutForm';
 import PaymentForm from './PaymentForm';
 import Header from "../Header/Header";
+import Confirm from './Confirm';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -83,6 +84,8 @@ function getStepContent(step, formValues = null, changeFormValue = null) {
     return <AddressForm addressValues={formValues} changeAddressValue={changeFormValue} />;
   case 1:
     return <PaymentForm paymentFormValues={formValues} changePaymentFormValue={changeFormValue}  />;
+  case 2:
+      return <Confirm/>;
   default:
     throw new Error('Unknown step');
   }
@@ -92,6 +95,7 @@ export default function Checkout(props) {
   const classes = useStyles();
   const [paymentFormValues, setPaymentFormValues] = React.useState({});
   const [addressFormValues, setAddressFormValues] = React.useState({});
+  const [orderValues, setOrderValues] = React.useState({});
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {

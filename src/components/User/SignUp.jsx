@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -30,10 +32,29 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = async(event) => {
-    event.preventDefault();
-  };
+const handleSubmit = () => {
+  const user ={
+    name: name,
+    email: email,
+    password : password,
+  }
+  
+  axios.post("http://localhost:8800/api/auth/register",user)
+      .then((response) => {
+        alert(user.email)  
+       if(response.user != null){
+         alert('signup successful');
+         console.log(response.user);
+       }
+       else{
+         alert('failed');
+       }
+      });
+  }
 
   return (
     <Card variant="outlined" sx={{maxWidth: 500, mx: "700px", my:"100px"}}>
@@ -64,6 +85,7 @@ export default function SignUp() {
                   fullWidth
                   id="Full Name"
                   label="Name"
+                  onChange={e => setName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -74,6 +96,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="Email"
                   autoComplete="email"
+                  onChange={e => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -85,6 +108,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={e => setPassword(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -116,4 +140,4 @@ export default function SignUp() {
     </ThemeProvider>
     </Card>
   );
-}
+};

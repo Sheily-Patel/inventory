@@ -1,4 +1,6 @@
-import React,{useState} from 'react';
+import * as React from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -6,11 +8,12 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import { Container, Card } from '@material-ui/core';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright(props) {
@@ -28,42 +31,31 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-// async function loginUser(credentials) {
-//   return fetch('http://localhost:8000/api/login', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(credentials)
-//   })
-//     .then(data => data.json())
-//  }
+export default function LogIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
- export default function LogIn({ setToken }) {
-  const [success, setSuccess] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    // const token = await loginUser({
-    //   email,
-    //   password
-    // });
-    console.log(email);
-    // setToken(token);
-    setSuccess(true);
+  const handleSubmit = (e) => {
+    const user ={
+      email: email,
+      password : password,
+    }
+    
+      axios.post("http://localhost:8800/api/auth/login",user)
+      .then((response) => {
+        alert(user.email)   //"does not work"
+       if(response.data != null){
+         alert('login successful');
+         console.log(response.data);
+       }
+       else{
+         alert('failed');
+       }
+      });
   }
 
+  const navigate = useNavigate();
   return (
-    <>
-    {success ? (
-        <Card variant="outlined" sx={{maxWidth: 350, mx: "750px", px: "10px", my:"100px"}}>
-          <h1>Logged In</h1><br/>
-          <a href='/home'>Go To Home</a>
-        </Card>
-    ) : (
-      <Card variant="outlined" sx={{maxWidth: 500, mx: "750px", my:"100px"}} >
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -81,7 +73,6 @@ const theme = createTheme();
           <Typography component="h1" variant="h5">
             Log In
           </Typography>
-        
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -90,12 +81,11 @@ const theme = createTheme();
               id="email"
               label="Email Address"
               name="email"
-              autoComplete="off"
+              autoComplete="email"
               autoFocus
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
-            <TextField 
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -104,8 +94,7 @@ const theme = createTheme();
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -116,19 +105,16 @@ const theme = createTheme();
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => {navigate("/home")}}
             >
               Log In
             </Button>
             <Grid container>
               <Grid item xs>
-                <a href="/password">
-                  Forgot password?
-                </a>
+                <a href="/password">Forgot password?</a>
               </Grid>
               <Grid item>
-                <a href="/signup">
-                  {"Don't have an account? Sign Up"}
-                </a>
+                <a href="/signup">{"Need an account? Sign Up"}</a>
               </Grid>
             </Grid>
           </Box>
@@ -136,8 +122,5 @@ const theme = createTheme();
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-    </Card>
-    )}
-    </>
   );
 }

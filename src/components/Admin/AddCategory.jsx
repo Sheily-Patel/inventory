@@ -43,15 +43,6 @@ const AddCategory = () => {
               margin="normal"
               required
               fullWidth
-              name="price"
-              label="Price"
-              type="number"
-              id="price"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
               name="description"
               label="Description"
               id="description"

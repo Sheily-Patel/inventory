@@ -1,13 +1,20 @@
-import { Card } from "@mui/material";
-import { data } from "../../Data/data";
+import { makeStyles } from "@material-ui/styles";
+import { useEffect, useState } from "react";
 
 const InventoryDetails = () => {
+    const useStyle = makeStyles({
+
+    });
+
+    const [details, setDetails] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8800/api/products/").then(response => response.json()).then(inventory=>{setDetails(details)});
+  }, []);
+  
+  const classes = useStyle();
     return(
-     <Card key={data.image}>
-         {data.map((data) => (
-         <img src={`${data.image}`} alt={data.name}/>
-         ))}
-    </Card>
-)};
+        
+    )
+};
 
 export default InventoryDetails;

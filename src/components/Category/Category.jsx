@@ -1,8 +1,5 @@
 import { useState } from 'react';
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
 import Header from "../Header/Header";
 import Categories from './Categories';
 import { makeStyles } from '@material-ui/core';
@@ -28,7 +25,7 @@ const useStyle = makeStyles({
         <div>
             <Header/>
             <Container className={classes.form}>
-                <FormControl fullWidth>
+                {/* <FormControl fullWidth> */}
                     {/* <InputLabel id="demo-simple-select-label" className={classes.category}>Category</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
@@ -43,7 +40,7 @@ const useStyle = makeStyles({
                             <MenuItem>Accessories</MenuItem>
                             <MenuItem>Beauty</MenuItem>
                         </Select> */}
-                </FormControl>
+                {/* </FormControl> */}
                 <Categories/>
             </Container>
         </div>
