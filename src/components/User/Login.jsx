@@ -1,20 +1,17 @@
 import * as React from 'react';
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import axios from 'axios';
+import Card from '@mui/material/Card';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
 
 function Copyright(props) {
   return (
@@ -27,35 +24,45 @@ function Copyright(props) {
       {'.'}
     </Typography>
   );
-}
+}      
 
 const theme = createTheme();
 
-export default function LogIn() {
+export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [success,setSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
-    const user ={
-      email: email,
-      password : password,
-    }
-    
-      axios.post("http://localhost:8800/api/auth/login",user)
-      .then((response) => {
-        alert(user.email)   //"does not work"
-       if(response.data != null){
-         alert('login successful');
-         console.log(response.data);
-       }
-       else{
-         alert('failed');
-       }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setEmail("");
+    setPassword("");
+    setSuccess(true);
+
+     let response = await fetch("http://localhost:8800/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({email, password}),
       });
-  }
+      let p = await response.json();
+      console.log(p);
 
-  const navigate = useNavigate();
+  };
+  
   return (
+    <>
+    {success ? (
+      <section>
+        <h1>Logged In</h1>
+        <p>
+          <a href="/home">Go To Home</a>
+        </p>
+      </section>
+    ): (
+      <section>
+    <Card variant="outlined" sx={{maxWidth: 500, mx: "700px", my:"100px"}}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -73,54 +80,65 @@ export default function LogIn() {
           <Typography component="h1" variant="h5">
             Log In
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              onChange={e => setEmail(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              onChange={e => setPassword(e.target.value)}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="Email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="Password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                />
+              </Grid>
+            </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {navigate("/home")}}
+              onClick={() => alert("Logged In")}
             >
               Log In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <a href="/password">Forgot password?</a>
-              </Grid>
               <Grid item>
-                <a href="/signup">{"Need an account? Sign Up"}</a>
+                <a href="/password">
+                  Forgot Password
+                </a>
               </Grid>
-            </Grid>
+              </Grid>
+              <Grid container>
+              <Grid item>
+                <a href="/signup">
+                  Need Account? Sign Up
+                </a>
+              </Grid>
+              </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: 5, mb: 2.5 }} />
       </Container>
     </ThemeProvider>
+    </Card>
+    </section>
+    )}
+    </>
   );
-}
+};

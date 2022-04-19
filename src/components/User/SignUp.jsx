@@ -11,10 +11,9 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import axios from 'axios';
+
 
 function Copyright(props) {
   return (
@@ -27,37 +26,50 @@ function Copyright(props) {
       {'.'}
     </Typography>
   );
-}
+}      
 
 const theme = createTheme();
 
 export default function SignUp() {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAdmin, setAdmin] = useState("");
+  const [subscription, setSubscription] = useState("");
+  const [success,setSuccess] = useState(false);
 
-const handleSubmit = () => {
-  const user ={
-    name: name,
-    email: email,
-    password : password,
-  }
-  
-  axios.post("http://localhost:8800/api/auth/register",user)
-      .then((response) => {
-        alert(user.email)  
-       if(response.user != null){
-         alert('signup successful');
-         console.log(response.user);
-       }
-       else{
-         alert('failed');
-       }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setAdmin("");
+    setSubscription("");
+    setSuccess(true);
+
+     let response = await fetch("http://localhost:8800/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({firstName, lastName, email, password, "isAdmin": true, "subscription": true}),
       });
-  }
-
+      let p = await response.json();
+      console.log(p);
+  };
+  
   return (
-    <Card variant="outlined" sx={{maxWidth: 500, mx: "700px", my:"100px"}}>
+    <>
+    {success ? (
+      <section>
+        <h1>Signup successfull</h1>
+        <p>
+          <a href="/">Go To Login</a>
+        </p>
+      </section>
+    ): (
+      <section>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -77,15 +89,28 @@ const handleSubmit = () => {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="Name"
+                  name="firstName"
                   required
                   fullWidth
-                  id="Full Name"
-                  label="Name"
-                  onChange={e => setName(e.target.value)}
+                  id="firstName"
+                  label="First Name"
+                  onChange={e => setFirstName(e.target.value)}
+                  
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  onChange={e => setLastName(e.target.value)}
+                  autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -94,21 +119,21 @@ const handleSubmit = () => {
                   fullWidth
                   id="email"
                   label="Email Address"
-                  name="Email"
-                  autoComplete="email"
+                  name="email"
                   onChange={e => setEmail(e.target.value)}
+                  autoComplete="email"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="Password"
+                  name="password"
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
                   onChange={e => setPassword(e.target.value)}
+                  autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -118,7 +143,7 @@ const handleSubmit = () => {
                 />
               </Grid>
             </Grid>
-            <Button
+            <Button onClick={() => alert("Signup successfull")}
               type="submit"
               fullWidth
               variant="contained"
@@ -126,18 +151,13 @@ const handleSubmit = () => {
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <a href="/">
-                  Go to Log In
-                </a>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5, mb: 2.5 }} />
+        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
-    </Card>
+    </section>
+    )}
+    </>
   );
 };

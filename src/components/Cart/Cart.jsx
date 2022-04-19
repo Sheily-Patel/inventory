@@ -2,6 +2,7 @@ import React from 'react';
 import { Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Header from "../Header/Header";
+import ImageList from '@mui/material/ImageList';
 
 
 const useStyle = makeStyles({
@@ -21,6 +22,7 @@ function Cart() {
       <Header/>
       <h2 className={classes.head}>My Cart</h2>
       <Divider/>
+      
     </div>
   )
 }
