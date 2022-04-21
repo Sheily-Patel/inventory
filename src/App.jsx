@@ -7,7 +7,7 @@ import Dashboard from "./components/Admin/Dashboard";
 import LogIn from "./components/User/Login";
 import Login from "./components/Admin/login";
 import User from "./components/Admin/Users";
-import Cart from "./components/Cart/Cart";
+// import Cart from "./components/Cart/Cart";
 import Orders from "./components/Admin/Orders";
 import AddInventory from "./components/Admin/AddInventory";
 import Inventory from "./components/Inventory/Inventory";
@@ -19,10 +19,10 @@ function App() {
   return (
     <BrowserRouter>
           <Routes>
+            <Route exact path="/home" element={<Home/>}/>
             <Route exact path="/" element={<LogIn/>}/>
             <Route exact path="/adminl" element={<Login/>}/>
             <Route exact path="/admins" element={<User/>}/>
-            <Route exact path="/home" element={<Home/>}/>
             <Route exact path="/dashboard" element={<Dashboard/>}/>
             <Route exact path="/signup" element={<SignUp/>}/>
             <Route exact path="/category" element={<Category/>}/>
@@ -32,7 +32,7 @@ function App() {
             <Route exact path="/password" element={<ForgotPassword/>}/>
             <Route exact path="/checkout" element={<Checkout/>}/>
             <Route exact path="/orders" element={<Orders/>}/>
-            <Route exact path="/cart" element={<Cart/>}/>
+            {/* <Route exact path="/cart" element={<Cart/>}/> */}
             <Route exact path="/wishlist" element={<Wishlist/>}/>
           </Routes>
     </BrowserRouter>

@@ -45,7 +45,7 @@ export default function SignUp() {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
         },
-        body: JSON.stringify({"email": email, "password": password, "isAdmin": true}),
+        body: JSON.stringify({email, password, isAdmin: true}),
       });
       let p = await response.json();
       console.log(p);

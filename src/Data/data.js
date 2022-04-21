@@ -67,7 +67,7 @@ export const fashion = [
     id: 2,
     name: "Brown Jacket",
     price: 7000,
-    image: "https://media.mauvetree.com/wp-content/uploads/2019/07/1-83.jpg"
+    image: "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7772541/2018/11/21/24c5eae7-3957-49c4-8960-9bc7d1da4c601542791975890-STREET-9-Women-Mustard-Brown-Solid-Crop-Jacket-841542791975606-1.jpg"
   },
   {
     id: 3,
@@ -151,31 +151,31 @@ export const sports = [
     id: 1,
     name: "Table Tennis Kit",
     price: 3250,
-    image: "https://img.joomcdn.net/a49d9ae8b64112630a81c6d6b6e76e56a6dd268b_original.jpeg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7o_3inTSGUuxPjyETlsfOgB2iziK-QOm9mw&usqp=CAU"
   },
   {
     id: 2,
     name: "Ball",
-    price: 300,
-    image: "https://img.joomcdn.net/a49d9ae8b64112630a81c6d6b6e76e56a6dd268b_original.jpeg"
+    price: 700,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTvUvmXD87mu6wVZVkEa12FaBhqoI9jmsj5PpBGfPobod68rx5CpUZrarPWpC2byEo_-w&usqp=CAU"
   },
   {
     id: 3,
     name: " Bat",
-    price: 3250,
-    image: "https://img.joomcdn.net/a49d9ae8b64112630a81c6d6b6e76e56a6dd268b_original.jpeg"
+    price: 350,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsYxpFqqZdVYXvHtEs7Oog2bvCJ9fPXttpdQ&usqp=CAU"
   },
   {
     id: 4,
-    name: "Tennis Kit",
+    name: "Racket",
     price: 1850,
-    image: "https://img.joomcdn.net/a49d9ae8b64112630a81c6d6b6e76e56a6dd268b_original.jpeg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf6IbXptXjUBdVGn9BplPn2_7r3YHnbrqcfA&usqp=CAU"
   },
   {
     id: 5,
-    name: "Table Tennis Kit",
-    price: 3250,
-    image: "https://img.joomcdn.net/a49d9ae8b64112630a81c6d6b6e76e56a6dd268b_original.jpeg"
+    name: "Tennis Kit",
+    price: 1850,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXu3LtKdi6wKwXHL5v1LPcuUdl1NxyVS5kag&usqp=CAU"
   }
 ];
 
@@ -248,98 +248,98 @@ export const beauty = [
 export const data = [
     {
       id: 1,
-      name: 'product1',
+      name: "Men's Shirt",
       description: "This is a sample product",
       price: 2999.99,
       image: 'https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg',
     },
     {
       id: 2,
-      name: 'product2',
+      name: "Women's T-Shirt",
       description: "This is a sample product",
       price: 1499.99,
       image: 'https://cdn09.nnnow.com/web-images/medium/styles/SEUZOZRTVKV/1646219404191/1.jpg',
     },
     {
       id: 3,
-      name: 'product3',
+      name: "Women Jeans",
       description: "This is a sample product",
       price: 1800.99,
       image: 'https://img01.ztat.net/article/spp-media-p1/057db7b226e8316487804a44023a8146/0e799c07fc0149c28286dbaa8115ac69.jpg?imwidth=300',
     },
     {
       id: 4,
-      name: 'product4',
+      name: 'Women Perfume',
       description: "This is a sample product",
       price: 2500.99,
       image: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1590520812-coco-mademoiselle-1590520534.jpg',
     },
     {
       id: 5,
-      name: 'product5',
+      name: 'Men T-Shirt',
       description: "This is a sample product",
       price: 699.99,
       image: 'https://www.sustainablejungle.com/wp-content/uploads/2020/04/Image-by-The-Classic-T-Shirt-Company--683x1024.jpg',
     },
     {
       id: 6,
-      name: 'product6',
+      name: 'Men Perfume',
       description: "This is a sample product",
       price: 3500,
       image: 'https://ustraa.cdn.imgeng.in/media/catalog/product/f/r/fragrance_bestfragrance.jpg',
     },
     {
       id: 7,
-      name: 'product7',
+      name: 'Women Purse',
       description: "This is a sample product",
       price: 2999.99,
       image: 'https://cf.ltkcdn.net/handbags/images/orig/266873-1600x1030-how-measure-purse-correctly.jpg',
     },
     {
       id: 8,
-      name: 'product8',
+      name: 'Men Shoes',
       description: "This is a sample product",
       price: 7999.99,
       image: 'https://images.unsplash.com/photo-1614253429340-98120bd6d753?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWVuJTIwc2hvZXN8ZW58MHx8MHx8&w=1000&q=80',
     },
     {
       id: 9,
-      name: 'product9',
+      name: 'Kids Clothing',
       description: "This is a sample product",
       price: 1599.99,
       image: 'https://images.squarespace-cdn.com/content/v1/5442b6cce4b0cf00d1a3bef2/1597252517429-0WZPO0Y2MRCLJ77P7B85/Organic-Cotton-Clothing-Children-Jackalo',
     },
     {
       id: 10,
-      name: 'product10',
+      name: 'Kids Clothing',
       description: "This is a sample product",
       price: 1299.99,
       image: 'https://images.textileexport.in/images/500/20220211/1644561132492619382-WhatsApp%20Image%202022-02-11%20at%2011.02.42%20AM%20(1).jpeg',
     },
     {
       id: 11,
-      name: 'product11',
+      name: 'Women Sandal',
       description: "This is a sample product",
       price: 799.99,
       image: 'https://m.media-amazon.com/images/I/61ipLRLNeIL._UL1085_.jpg',
     },
     {
       id: 12,
-      name: 'product12',
+      name: 'Women Moose',
       description: "This is a sample product",
       price: 300.99,
       image: 'https://m.media-amazon.com/images/I/31gFaNahjoL.jpg',
     },
     {
       id: 13,
-      name: 'product13',
+      name: 'Air Fryer',
       description: "This is a sample product",
       price: 6650.99,
       image: 'https://ds393qgzrxwzn.cloudfront.net/resize/m500x500/cat1/img/images/0/7vJ2Fgljfl.jpg',
     },
     {
       id: 14,
-      name: 'product14',
+      name: 'Men Crocs',
       description: "This is a sample product",
       price: 3599.99,
       image: 'https://photos6.spartoo.eu/photos/164/16474742/16474742_500_A.jpg',

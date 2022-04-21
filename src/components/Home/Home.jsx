@@ -2,7 +2,6 @@ import React from 'react';
 import Mobile from '../Category/Mobile';
 import Fashion from '../Category/Fashion';
 import Electronics from '../Category/Electronics';
-import Sports from '../Category/Sports';
 import Accessories from '../Category/Accessories';
 import Beauty from "../Category/Beauty";
 import Header from '../Header/Header';
@@ -58,12 +57,6 @@ function Home() {
         <h2 className={classes.header}>Electronics
         <Button variant='contained' className={classes.button} onClick={() => navigate('/category')}>View All</Button></h2>
         <Electronics/>
-      </section>
-      <Divider className={classes.divider}/>
-      <section>
-        <h2 className={classes.header}>Sports
-        <Button variant='contained' className={classes.button} onClick={() => navigate('/category')}>View All</Button></h2>
-        <Sports/>
       </section>
       <Divider className={classes.divider}/>
       <section>
